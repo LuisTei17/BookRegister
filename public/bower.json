@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "authors": [
+    "Luis Eduardo <luisedteixeira@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "bootstrap": "*",
+    "jquery": "*",
+    "angular-resource": "~1.6.5"
+  }
+}

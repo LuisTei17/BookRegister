@@ -1,0 +1,19 @@
+<h1>Techblog</h1>
+<div ng-repeat="post in posts">
+  <div class="row">
+    <div class="thumbnail">
+      <div class="caption">
+        <a ng-click="deleta(post)"><span class="glyphicon glyphicon-trash"></span></a>
+        <a ng-href="#!/postagens/{{post._id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h3 class="titulo text-center">{{post.titulo}}</h3>
+        <p class="texto">{{post.texto | limitTo: post.limite}}
+          <a ng-show="post.limite == 200 && post.texto.length > 200" ng-click="vermais(post)">...ver mais</a>
+          <a ng-show="post.limite == null && post.texto.length > 200" ng-click="vermenos(post)">...ver menos</a>
+        </p>
+        <p class="inf">{{post.autor}}</p>
+        <p class="inf">{{post.data}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-success" href="#!/postagens">Novo post</a>

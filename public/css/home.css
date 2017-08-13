@@ -1,0 +1,15 @@
+.inf {
+  color: #7F787F;
+  margin-bottom: 1px;
+  text-align: right;
+}
+
+.titulo {
+  font-weight: bold;
+}
+
+.texto {
+  word-break: break-all;
+  height: inherit;
+  width: 100%;
+}
