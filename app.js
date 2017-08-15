@@ -2,8 +2,12 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var load = require('express-load');
+var mongoose = require('mongoose');
+var mongo = require('mongo');
 
 var app = express();
+mongoose.connect('mongodb://localhost:27017/techblog');
+var db = mongoose.connection;
 
 app.use(express.static('./public'));
 app.use(bodyParser.json());
@@ -12,7 +16,8 @@ app.use(require('method-override')());
 
 app.set('port', (process.env.PORT || 4010));
 
-load('controllers', {cwd: 'app'})
+load('models', {cwd: 'app'})
+    .then('controllers')
     .then('routes')
     .into(app);
 

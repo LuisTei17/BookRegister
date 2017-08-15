@@ -32,11 +32,9 @@ angular.module('techBlog').controller("homeController", function($scope, Postage
   buscaPosts();
 
   $scope.deleta = function(post) {
-    console.log(post._id);
-    console.log(post.titulo);
     Postagem.delete({id: post._id},
       buscaPosts,
-      function(erro){
+      function(erro) {
         $scope.mensagem = {
           msg: "Não foi possivel remover o erro"
         };

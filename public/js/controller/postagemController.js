@@ -1,5 +1,5 @@
-angular.module('techBlog').controller('postagemController', function($scope, Postagem, $routeParams, $location) {
-  console.log($routeParams.id);
+angular.module('techBlog').controller('postagemController', function($scope, Postagem, $routeParams, $location, $filter) {
+
   if($routeParams.id) {
     Postagem.get({id:$routeParams.id},
       function(postagem) {
@@ -13,9 +13,10 @@ angular.module('techBlog').controller('postagemController', function($scope, Pos
       })
   } else {
     $scope.postagem = new Postagem();
+    $scope.postagem.data = $filter('date')(new Date(), 'dd/MM/yyyy');
   }
 
-  $scope.posta = function() {
+  $scope.posta = function(frm) {
     console.log("Função chamada");
     $scope.postagem.$save().then(function(){
       $location.path('/postagem')
